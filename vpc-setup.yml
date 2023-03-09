@@ -3,7 +3,9 @@
   gather_facts: False
   tasks:
     - name: Import VPC Variables
-      include_vars: vars/vpc_setup
+      ansible.builtin.include_vars:
+              dir: vars
+              files_matching: vars/vpc_setup
 
     - name: Create vprofile VPC
       ec2_vpc_net:
